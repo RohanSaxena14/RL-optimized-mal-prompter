@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
 
-class SimpleRanker:
+class RankBasedScorer:
     """
     Simple ranker that takes jailbreak attempts and returns ranked IDs with explanations.
     """
@@ -166,7 +166,7 @@ if __name__ == "__main__":
     
     load_dotenv(dotenv_path="./.creds/hf_token.env")
     
-    ranker = SimpleRanker(
+    ranker = RankBasedScorer(
         model_name="microsoft/Phi-3.5-mini-instruct",
         load_in_8bit=False
     )
