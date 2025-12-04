@@ -45,6 +45,8 @@ class RankBasedScorer:
             model_kwargs["device_map"] = "auto"
         else:
             model_kwargs["torch_dtype"] = torch.float16 if device == "cuda" else torch.float32
+            model_kwargs["device_map"] = "auto" if device == "auto" else {"": device}
+            device = "cuda" if device == "auto" else device
         
         self.model = AutoModelForCausalLM.from_pretrained(model_name, **model_kwargs)
         

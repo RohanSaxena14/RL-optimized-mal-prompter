@@ -91,8 +91,12 @@ class UnifiedCategoryAttacker:
             # Use 'dtype' instead of 'torch_dtype' for newer transformers versions
             try:
                 model_load_kwargs["dtype"] = torch_dtype
+                model_kwargs["device_map"] = "auto" if device == "auto" else {"": device}
+                device = "cuda" if device == "auto" else device
             except:
                 model_load_kwargs["torch_dtype"] = torch_dtype
+                model_kwargs["device_map"] = "auto" if device == "auto" else {"": device}
+                device = "cuda" if device == "auto" else device
         
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name_or_path,
