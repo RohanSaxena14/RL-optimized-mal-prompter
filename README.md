@@ -344,29 +344,3 @@ M_QUERIES_PER_CATEGORY = 10 # Number of queries to test
 MODEL_NAME = "microsoft/Phi-3.5-mini-instruct"
 LOAD_IN_8BIT = False        # Set True to save memory
 ```
-
----
-
-## Performance Expectations
-
-### Typical Progression (5 iterations)
-
-| Iteration | Model State | Best Reward | Improvement |
-|-----------|-------------|-------------|-------------|
-| 0 (warmup) | Base model | 0.60 | Baseline |
-| 1 | 1st RL update | 0.75 | +25% |
-| 2 | 2nd RL update | 0.85 | +13% |
-| 3 | 3rd RL update | 0.89 | +5% |
-| 4 | 4th RL update | 0.91 | +2% |
-
-### Computational Requirements
-
-**Per Iteration**: ~1-2 hours
-**GPU Memory**: 2x GPUs with 16GB+ VRAM each (recommended)
-**Storage**: ~75GB (5 iterations)
-
----
-
-## License
-
-This project is for research purposes only. Use responsibly and ethically.
